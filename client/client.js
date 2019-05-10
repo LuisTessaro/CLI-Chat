@@ -8,7 +8,12 @@ const readline = require('readline').createInterface({
 })
 
 socket.on('msg', (data) => {
-    console.log(data.name, ':', data.message)
+    // console.log(data.message.toString())
+    const msg = data.message
+    if(msg){
+        console.log(data.name, ':', data.message)
+        console.log(" ")
+    }
 })
 
 readLine()
