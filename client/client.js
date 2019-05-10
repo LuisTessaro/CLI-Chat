@@ -1,7 +1,5 @@
 const username = process.argv[2] || 'Luis'
-const ip = process.argv[3] || '127.0.0.1'
-const port = process.argv[4] || '8080'
-const uri = 'http://' + ip + ':' + port + ''
+const uri = process.argv[3]
 const socket = require('socket.io-client')(uri);
 
 const readline = require('readline').createInterface({
