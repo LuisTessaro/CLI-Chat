@@ -31,10 +31,12 @@ io.on('connection', (socket) => {
             message: data.message
         })
         Object.keys(clients).forEach(key => {
-            io.to(key).emit('msg', {
-                name: data.userName,
-                message: data.message
-            })
+            if (socket.id != key) {
+                io.to(key).emit('msg', {
+                    name: data.userName,
+                    message: data.message
+                })
+            }
         });
     })
 
