@@ -8,8 +8,11 @@ const readline = require('readline').createInterface({
 })
 
 socket.on('msg', (data) => {
-    if(data.message !== "" && data.message !== null && data.message !== " " && data.message !== "\n"){
+    // console.log(data.message.toString())
+    const msg = data.message
+    if(msg){
         console.log(data.name, ':', data.message)
+        console.log(" ")
     }
 })
 
