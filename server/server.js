@@ -30,7 +30,12 @@ io.on('connection', (socket) => {
             name: data.userName,
             message: data.message
         })
-        
+        Object.keys(clients).forEach(key => {
+            io.to(key).emit('msg', {
+                name: data.userName,
+                message: data.message
+            })
+        });
     })
 
     socket.on('update', (data) => {

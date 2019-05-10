@@ -7,17 +7,14 @@ const readline = require('readline').createInterface({
     output: process.stdout
 })
 
-socket.on('logs', (data) => {
-    console.log()
-    data.forEach(e => {
-        console.log(e.name, ':', e.message)
-    });
+socket.on('msg', (data) => {
+    console.log(data.name, ':', data.message)
 })
 
 readLine()
 
 function readLine() {
-    readline.question(`msg?`, (msg) => {
+    readline.question(``, (msg) => {
         if (msg == 'u') {
             socket.emit('update', 'updateChat')
             readLine()
