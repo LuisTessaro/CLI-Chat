@@ -1,5 +1,5 @@
-const username = process.argv[2] || 'Luis'
-const uri = process.argv[3]
+const username = process.argv[2] || 'Anonymous' + Math.random().toString(36).slice(2)
+const uri = "http://"+process.argv[3]+".ngrok.io"
 const socket = require('socket.io-client')(uri);
 
 const readline = require('readline').createInterface({
