@@ -12,7 +12,7 @@ socket.on('msg', (data) => {
     const msg = data.message
     if(msg){
         console.log(data.name, ':', data.message)
-        console.log(" ")
+        // console.log(" ")
     }
 })
 
