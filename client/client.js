@@ -24,7 +24,7 @@ function readLine() {
             socket.emit('update', 'updateChat')
             readLine()
         } else if (msg == 'close') {
-
+            console.log('bye!!')
         } else {
             socket.emit('message', {
                 message: msg,
