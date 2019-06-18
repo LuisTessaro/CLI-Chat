@@ -20,6 +20,14 @@ app.get('/', (req, res) => {
 })
 
 io.on('connection', (socket) => {
+    Object.keys(clients).forEach(key => {
+        if (socket.id != key) {
+            io.to(key).emit('msg', {
+                name: 'SERVER INFO',
+                message: 'Client ' + socket.id + ' connected'
+            })
+        }
+    });
     console.log('Client ' + socket.id + ' connected')
 
     if (!clients[socket.id])
@@ -44,7 +52,7 @@ io.on('connection', (socket) => {
         socket.emit('logs', chatLog)
     })
 
-    socket.on('disconnect', function () {
+    socket.on('disconnect', function() {
         clients[socket.id] = null
         console.log('Client' + socket.id + ' disconnected')
     })
